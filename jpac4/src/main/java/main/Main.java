@@ -1,6 +1,7 @@
 package main;
 
 import entities.Building;
+import entities.Department;
 import entities.Person;
 import entities.embedabbles.BuildingPK;
 
@@ -14,11 +15,11 @@ public class Main {
 
         em.getTransaction().begin();
 
-//        Department d = new Department();
-//        d.setName("DEP 1");
-//        d.setCode("QWE");
-//        d.setNo(10);
-//        em.persist(d);
+        Department d = new Department();
+        d.setName("DEP 1");
+        d.setCode("QWE");
+        d.setNo(10);
+        em.persist(d);
 
 //        Building b = new Building();
 //        b.setName("B1");
@@ -27,9 +28,9 @@ public class Main {
 //        b.getId().setNo(20);
 //        em.persist(b);
 
-        Person p1 = new Person();
+        /*Person p1 = new Person();
         p1.setName("P1");
-        em.persist(p1);
+        em.persist(p1);*/
 
         em.getTransaction().commit();
         em.close();

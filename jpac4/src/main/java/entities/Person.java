@@ -11,7 +11,7 @@ public class Person {
     private String name;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public int getId() { // PROPERTY ACCESS
         return id;
     }
