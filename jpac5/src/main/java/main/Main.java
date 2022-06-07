@@ -15,20 +15,22 @@ public class Main {
 
         em.getTransaction().begin();
 
-        Product p = em.find(Product.class, 6);
+        //Product p = em.find(Product.class, 6);
 
-//        Product p = new Product();
-//        p.setName("Beer");
-//        p.setPrice(5);
-//        em.persist(p);
+        Product p = new Product();
+        p.setName("Beer");
+        p.setPrice(5);
+        em.persist(p);
 
-//        Detail d = new Detail();
-//        d.setKcal(400);
-//
-//        d.setProduct(p);
-//        p.setDetail(d);
-//
-//        em.persist(d);
+        Detail d = new Detail();
+        d.setKcal(400);
+
+        d.setProduct(p);
+        p.setDetail(d);
+
+        em.persist(d);
+
+        Product p2 = em.find(Product.class, 6);
 
 //        Company c1 = new Company();
 //        c1.setName("XYZ");

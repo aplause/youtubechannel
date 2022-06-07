@@ -6,14 +6,14 @@ import javax.persistence.*;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String name;
 
     private double price;
 
-    @OneToOne(mappedBy = "product", fetch = FetchType.LAZY, targetEntity = Detail.class)
+    @OneToOne(mappedBy = "product", fetch = FetchType.EAGER, targetEntity = Detail.class)
     private Object detail;
 
     public int getId() {
