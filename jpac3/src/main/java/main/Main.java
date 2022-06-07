@@ -5,6 +5,10 @@ import entities.*;
 import entities.embeddables.Address;
 import entities.enums.Currency;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Random;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,16 +20,21 @@ import java.util.Date;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        //Connection conn = DriverManager.
+                //getConnection("jdbc:h2:~/playground");
+        //conn.close();
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-persistence-unit");
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
 
-//        Price p = new Price();
-//        p.setAmount(100);
-//        p.setCurrency(Currency.USD);
-//        em.persist(p);
+        Price p = new Price();
+        //p.setId(new Random().nextInt());
+        p.setAmount(100);
+        p.setCurrency(Currency.USD);
+        em.persist(p);
 
 //        Product p = new Product();
 //        p.setExpDate(LocalDate.now());
@@ -39,15 +48,15 @@ public class Main {
 //        e.setEmpDate(new Date());
 //        em.persist(e);
 
-        Company c = new Company();
+        /*Company c = new Company();
         c.setName("ABC");
         c.setAddress(new Address());
 
         c.getAddress().setNumber("4");
         c.getAddress().setStreet("Some Street");
-        c.getAddress().setCity("London");
+        c.getAddress().setCity("London");*/
 
-        em.persist(c);
+        //em.persist(c);
 
         em.getTransaction().commit();
         em.close();
