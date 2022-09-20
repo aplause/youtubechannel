@@ -34,8 +34,8 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
     public DataSource dataSource() {
         var dataSource = new DriverManagerDataSource();
 
-        dataSource.setUrl("jdbc:mysql://localhost/spring");
-        dataSource.setUsername("root");
+        dataSource.setUrl("jdbc:h2:mem:testdb");
+        dataSource.setUsername("sa");
         dataSource.setPassword("");
 
         return dataSource;
@@ -48,7 +48,8 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable(); // CSRF tokens ...
 
         http.authorizeRequests()
-                .mvcMatchers("/user").permitAll()
-                .anyRequest().authenticated();
+                //.mvcMatchers("/user").permitAll()
+                //.mvcMatchers("/h2-console").permitAll()
+                .anyRequest().permitAll();
     }
 }
