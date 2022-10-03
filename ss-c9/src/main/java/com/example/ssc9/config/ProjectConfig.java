@@ -13,7 +13,7 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-//        http.csrf().disable(); // GENERALLY DON'T DO THIS :)
+        http.csrf().disable(); // GENERALLY DON'T DO THIS :)
 
         http.csrf(c -> {
             c.ignoringAntMatchers("/csrfdiabled/**");
