@@ -1,0 +1,1 @@
+INSERT INTO client (client_id, secret, grant_type, scope) VALUES ('client1', 'secret1', 'password', 'read');
